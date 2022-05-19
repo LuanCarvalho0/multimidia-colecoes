@@ -1,0 +1,32 @@
+{% extends "template.html" %}
+{% block conteudo %}
+
+      {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <ul id="messages" class="list-unstyled">
+                {% for message in messages %}
+                    <li class="alert alert-success">{{ message }}</li>
+                {% endfor %}
+                </ul>
+            {% endif %}
+        {% endwith %}
+
+      <form action="{{ url_for('novo_usuario') }}" method="post" enctype="multipart/form-data">
+        <fieldset>
+          <div class="form-group">
+            <label for="nome">Nome</label>
+            <input type="text" id="nome" name="nome" class="form-control">
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="text" id="email" name="email" class="form-control">
+          </div>
+          <div class="form-group">
+            <label for="senha">Senha</label>
+            <input type="text" id="senha" name="senha" class="form-control">
+          </div>
+          <button type="submit" class="btn btn-primary btn-salvar">Salvar</button>
+          <a class="btn btn-danger" href="{{ url_for('login') }}">Voltar</a>
+        </fieldset>
+      </form>
+{% endblock %}

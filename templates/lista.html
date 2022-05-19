@@ -1,0 +1,36 @@
+<a class="btn btn-info" href="{{ url_for('login') }}">Login/Cadastrar</a>
+<a class="btn btn-danger" href="{{ url_for('logout') }}">Sair</a>
+{% extends "template.html" %}
+{% block conteudo %}
+
+        <table class="table table-striped table-responsive table-bordered">
+            <thead class="thead-default">
+                <tr>
+                    <th>tipo</th>
+                    <th>nome</th>
+                    <th>estado</th>
+                    <th>detalhes</th>
+                    <th>fabricante</th>
+                    <th>ano</th>
+                    <th>acessórios</th>
+                    <th>preço</th>
+                    <th></th>
+
+                </tr>
+            </thead>
+            <tbody>
+                {% for jogo in jogos %}
+                <tr>
+                    <td>{{ jogo.tipo }}</td>
+                    <td>{{ jogo.nome }}</td>
+                    <td>{{ jogo.estado }}</td>
+                    <td>{{ jogo.detalhes }}</td>
+                    <td>{{ jogo.fabricante }}</td>
+                    <td>{{ jogo.ano }}</td>
+                    <td>{{ jogo.acessorios }}</td>
+                    <td>{{ jogo.preco }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+{% endblock %}
